@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>رسالة ليكي 🤍</title>
+<link rel="stylesheet" href="ستايل.css">
+
+<style>
+body{
+    margin:0;
+    padding:0;
+    font-family: Arial, sans-serif;
+    background-color: black;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+} 
+
+.container{
+    background:#333;
+    padding:50px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 10px 20px #1d1d1d;
+    width:90%;
+    max-width:400px;
+}
+
+h1{
+    margin-bottom:30px;
+    font-size:22px;
+    color:white;
+}
+
+.buttons{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+}
+
+button{
+    padding:10px 20px;
+    border:none;
+    border-radius:20px;
+    cursor:pointer;
+    font-size:16px;
+    transition:0.3s;
+}
+
+.yes{
+    background:#4CAF50;
+    color:white;
+}
+
+.no{
+    background:#f44336;
+    color:white;
+    position:relative;
+}
+
+button:hover{
+    opacity:0.8;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>انتي زعلانة مني؟ 🥺</h1>
+
+    <div class="buttons">
+        <button class="yes" onclick="love()">لا 🤍</button>
+        <button class="no" onmouseover="moveButton(this)">اه 😅</button>
+    </div>
+
+    <p id="message" style="margin-top:20px;"></p>
+</div>
+
+<div id="popup">
+    <p id="popupMessage"></p>
+    <img src="photo-1600703136783-bdb5ea365239.avif" alt="Rose" id="rose">
+    <button onclick="closePopup()">اغلاق</button>
+</div>
+
+<script>
+function love(){
+    document.getElementById("popupMessage").innerText =
+        "عارف إني غلطت، بس والله ما اقصد أزعلك 🤍";
+    const popup = document.getElementById("popup");
+    popup.classList.add("show");
+}
+
+function closePopup(){
+    const popup = document.getElementById("popup");
+    popup.classList.remove("show");
+    setTimeout(() => {
+        popup.style.display = "none";
+    }, 500); // عشان يعطيه وقت الـ fade out
+}
+function moveButton(button){
+    const x = Math.floor(Math.random() * 200) - 100;
+    const y = Math.floor(Math.random() * 200) - 100;
+    button.style.transform = `translate(${x}px, ${y}px)`;
+}
+</script>
+
+<script src="main.js"></script>
+
+</body>
+</html>
